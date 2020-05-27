@@ -14,18 +14,16 @@ class PersonService():
         person = Person(name, surname, age)
         return person
 
-    # Agrega una persona en el dicionario person, definido en Repository
     def add_person(self, person=None):
         print("\n--------Agregar Persona--------")
         if person is None:
             person = self.createPerson()
-        key = len(Repository.person)
-        Repository.person[key] = person.__dict__
+        for key in Repository.person:
+            lastKey = key
+        lastKey += 1
+        Repository.person[lastKey] = person.__dict__
         print("\n%s ha sido añadido!" % person.name)
 
-    # Actualiza datos de una person del diccionario person
-    # key clave diccionario
-    # object Person
     def update_person(self, key=None, opc=None):
         print("\n--------Modificar Persona--------")
         if key is None:
@@ -46,7 +44,6 @@ class PersonService():
             person['_age'] = int(modify)
         print("\nModificacion exitosa!\n%s" % person)
 
-    # Elimina persona segun key del dic person
     def delete_person(self, key=None):
         print("\n--------Eliminar Persona--------")
         if key is None:
