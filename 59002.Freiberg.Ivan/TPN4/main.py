@@ -20,7 +20,7 @@ class Main():
 if __name__ == '__main__':
     main = Main()
 
-    personService = PersonService(Repository)
+    personService = PersonService()
 
     while True:
         opcionElegida = main.menu_personas()

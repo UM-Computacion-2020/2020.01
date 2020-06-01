@@ -1,15 +1,20 @@
 # declaramos la clase persona
 class Person:
     # declaramos el metodo __init__ 
-    def __init__(self, name, age):
+    def __init__(self, name, surname, age, phone):
         self.name=name
+        self.surname=surname
         self.age=age
+        self.phone=phone
  
     #Devuelve una lista con el nombre y la edad
     #return ["Claudio", 32]
     def get_person(self):
-       return [self.name, self.age]
- 
+        person = {'name': self.name, 'surname': self.surname, 'age': self.age, 'phone': self.phone]
+        return person 
+
+        # o person = dict
+        #   return dict
  
 # declaramos la clase Employee
 # la clase empleado hereda los atributos y metodos de la clase Persona
@@ -34,3 +39,7 @@ class Employee(Person):
             return "Paga impuestos"
         else:
             return "No paga impuestos"
+if __name__ == '__main__':
+p = person("Ivan", "Freiberg", 20, 2615410198)
+personDic = p.get_person()
+print(personDic ['name'])

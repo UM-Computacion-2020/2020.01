@@ -3,8 +3,6 @@ from person import Person
 
 
 class PersonService:
-    def __init__(self, repository):
-        self.repository = repository
 
     def get_personList(self,):
         return Repository.person
