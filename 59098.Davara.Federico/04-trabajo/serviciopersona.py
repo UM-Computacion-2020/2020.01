@@ -10,30 +10,21 @@ class Serviciopersona:
     # Agrega una persona en el dicionario person, definido en Repository
     def add_person(self, persona):
         print("\n----> \tAgregando persona...")
-        key = len(Repositorio.persona)
-        while key in Repositorio.persona:
-            key = key + 1
-        Repositorio.persona[key] = persona.__dict__
+        lastKey = -1
+        for key in Repositorio.persona:
+            lastKey = key
+        lastKey = lastKey + 1
+        Repositorio.persona[lastKey] = persona.__dict__
         print("\n----> \tAgregado.")
 
     # Actualiza datos de una person del diccionario person
     # key clave diccionario
     # object Person
-    def update_person(self, key):
-        if key in Repositorio.persona:
-            print("\n----> \tModificando a %s , de key = %d..." % (Repositorio.persona[key], key))
-            Repositorio.persona[key]['_nombre'] = input("\n----> \tIngrese el nuevo nombre: ").upper()
-            Repositorio.persona[key]['_apellido'] = input("\n----> \tIngrese el nuevo apellido: ").upper()
-            Repositorio.persona[key]['_edad'] = input("\n----> \tIngrese la nueva edad: ")
-            print("\n----> \tModificado.")
-        else:
-            print("\n----> \tERROR: La clave no existe.")
-
+    def update_person(self, key, persona):
+        Repositorio.persona[key]['_nombre'] = persona.nombre
+        Repositorio.persona[key]['_apellido'] = persona.apellido
+        Repositorio.persona[key]['_edad']= persona.edad
+    
     # Elimina persona segun key del dic person
     def delete_person(self, key):
-        if key in Repositorio.persona:
-            print("\n----> \tEliminando a %s , de key = %d..." % (Repositorio.persona[key], key))
-            del Repositorio.persona[key]
-            print("\n----> \tEliminado.")
-        else:
-            print("\n----> \tERROR: La clave no existe.")
+        del Repositorio.persona[key]

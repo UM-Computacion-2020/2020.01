@@ -11,58 +11,36 @@ class App:
         print("  \tSalir (otra tecla)")
         return int(input("\n\tElija una opción: "))
 
-if __name__ == '__main__':
-    serviciopersona = Serviciopersona()
-
-    # Agregamos una persona
-    p1 = Persona()
-    p1.nombre = 'federico'
-    p1.apellido = 'gonzalez'
-    p1.edad = '20'
-    serviciopersona.add_person(p1)
-
-    # Agregamos una persona
-    p1 = Persona()
-    p1.nombre = 'claudio'
-    p1.apellido = 'pico'
-    p1.edad = '33'
-    serviciopersona.add_person(p1)
-
-    # Agregamos al hermano
-    p1 = Persona()
-    p1.nombre = 'nicolas'
-    p1.apellido = 'pico'
-    p1.edad = '40'
-    serviciopersona.add_person(p1)
-
-    print(serviciopersona.get_personList())  # {0: {'_name': 'FEDERICO', '_surname': 'GONZALEZ', '_age': '20'}, 1: {'_name': 'CLAUDIO', '_surname': 'PICO', '_age': 33}, 2: {'_name': 'NICOLAS', '_surname': 'PICO', '_age': 40}}
-
-    # Actualizacion de FEDERICO
-    serviciopersona.update_person(0)
-    print(serviciopersona.get_personList())
-
-    # borrar persona
-    serviciopersona.delete_person(2)
-
-    print(serviciopersona.get_personList())  # {0: {'_name': 'FEDERICO', '_surname': 'GONZALEZ', '_age': '30'}, 1: {'_name': 'CLAUDIO', '_surname': 'PICO', '_age': 33}}
-
-    # menú
+if __name__ == '__main__':   
     app = App()
+    serviciopersona = Serviciopersona()
+    
     while True:
         opcion_persona = app.menu_persona()
+        
         if opcion_persona == 1:
-            print(serviciopersona.get_personList())
+            listPerson = serviciopersona.get_personList()
+            for key in listPerson:
+                print("legajo: %s -> %s" % (key, listPerson[key]))
+        
         if opcion_persona == 2:
-            _nombre = input("\n----> \tIngrese el nombre de la persona: ").upper()
-            _apellido = input("\n----> \tIngrese el apellido de la persona: ").upper()
-            _edad = input("\n----> \tIngrese la edad de la persona: ")
-            px = Persona(_nombre, _apellido, _edad)
-            serviciopersona.add_person(px)
+            p = Persona()
+            p.nombre = input("Ingrese Nombre: ")
+            p.apellido = input("Ingrese apellido: ")
+            p.edad = int(input("Ingrese edad: "))
+            serviciopersona.add_person(p)
+        
         if opcion_persona == 3:
-            key = int(input("\n----> \tIngrese la key de la persona que quiere modificar: "))
-            serviciopersona.update_person(key)
+            key = int(input("Ingreso legajo"))
+            p = Persona
+            p.nombre = input("Ingrese Nombre: ")
+            p._apellido = input("Ingrese Apellido: ")
+            p.edad = int(input("Ingrese edad: "))
+            serviciopersona.update_person(key, p)
         if opcion_persona == 4:
-            key = int(input("\n----> \tIngrese la key de la persona que quiera eliminar: "))
-            serviciopersona.delete_person(key)
+            p = Persona()
+            key = int(input("Ingrese legajo de la persona: "))
+            serviciopersona.delete_person(key)    
+
         if opcion_persona < 1 or opcion_persona > 4:
             break
