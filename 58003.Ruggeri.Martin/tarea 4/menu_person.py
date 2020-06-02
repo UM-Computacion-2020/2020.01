@@ -41,4 +41,3 @@ if __name__ == '__main__':
             service.eliminar()
         if opcion_person < 1 or opcion_person > 4:
             break
-        

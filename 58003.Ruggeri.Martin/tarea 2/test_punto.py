@@ -1,5 +1,5 @@
 import unittest
-from punto import Punto, PuntoMejorado
+from punto import Punto
 from parameterized import parameterized
 
 

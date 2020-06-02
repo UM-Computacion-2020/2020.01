@@ -7,7 +7,7 @@ class Person():
 
     def __str__(self):
         return "%s %s %s %d" % (self.key, self.nombre, self.apellido,
-                                 self.edad)
+                                self.edad)
 
     def ingresar(self):
         print("Ingresando Person")
@@ -15,7 +15,7 @@ class Person():
         self.nombre = input("Ingrese nombre: ").upper()
         self.apellido = input("Ingrese apellido : ").upper()
         self.edad = int(input("Ingrese edad: "))
-        
+
     def modificar(self, modificar):
         print("modificando Person")
         if modificar == 1:
