@@ -1,2 +1,3 @@
 FROM juarezgonzalo/computacion:base
-ENTRYPOINT ["python3", "/app/src/59088.Juarez.Gonzalo/enunciado/01-trabajo/test_sort.py"]
+WORKDIR /app/src/59088.Juarez.Gonzalo/
+ENTRYPOINT ["/bin/bash", "-c", "pipenv run python ./enunciado/01-trabajo/test_sort.py"]
