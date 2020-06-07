@@ -1,6 +1,7 @@
 from repository import Repository
 from person import Person
 
+
 class PersonService():
     def get_personList(self):
         Person.frame()
@@ -56,7 +57,7 @@ class PersonService():
             person['_surname'] = modify.upper()
         if opc == 3:
             person['_age'] = int(modify)
-        
+
         Person.frame()
         print("\n¡Modificacion exitosa!\n%s" % person)
         Person.frame()
