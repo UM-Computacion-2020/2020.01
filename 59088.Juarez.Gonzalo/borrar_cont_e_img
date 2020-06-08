@@ -1,5 +1,0 @@
-#!/bin/bash
-docker-compose down
-docker image rm clase1:59088.Juarez clase2:59088.Juarez clase3:59088.Juarez \
-tp1:59088.Juarez tp2:59088.Juarez tp3:59088.Juarez tp4:59088.Juarez \
-juarezgonzalo/computacion:base
