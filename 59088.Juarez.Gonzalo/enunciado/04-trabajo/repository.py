@@ -1,2 +1,0 @@
-class Repository:
-    persons = dict()

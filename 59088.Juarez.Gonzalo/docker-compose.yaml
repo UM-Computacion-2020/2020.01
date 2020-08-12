@@ -1,0 +1,52 @@
+version: "3.6"
+
+services:
+
+    tp4:
+        build:
+            context: ./enunciado/04-trabajo/
+            dockerfile: Dockerfile
+        image: tp4:59088.Juarez
+        container_name: tp4-59088-Juarez
+
+    tp3:
+        build:
+            context: ./enunciado/03-trabajo/
+            dockerfile: Dockerfile
+        image: tp3:59088.Juarez
+        container_name: tp3-59088-Juarez
+    
+    tp2:
+        build:
+            context: ./enunciado/02-trabajo/
+            dockerfile: Dockerfile
+        image: tp2:59088.Juarez
+        container_name: tp2-59088-Juarez
+            
+    tp1:
+        build:
+            context: ./enunciado/04-trabajo/
+            dockerfile: Dockerfile
+        image: tp1:59088.Juarez
+        container_name: tp1-59088-Juarez
+
+    clase3:
+        build:
+            context: ./Clase.20200512/
+            dockerfile: Dockerfile
+        image: clase3:59088.Juarez
+        container_name: clase3-59088-Juarez
+
+    clase2:
+        build:
+            context: ./Clase.20200421/
+            dockerfile: Dockerfile
+        image: clase2:59088.Juarez
+        container_name: clase2-59088-Juarez
+
+    clase1:
+        build:
+            context: ./Clase.20200414/
+            dockerfile: Dockerfile
+        image: clase1:59088.Juarez
+        container_name: clase1-59088-Juarez
