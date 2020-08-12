@@ -6,13 +6,14 @@ class Person:
         self._age = age
 
     def get_person(self):
-        #upper() pone a los atributos en mayusculas.
-        return {'_name': self._name.upper(), '_surname': self._surname.upper(), '_age': self._age}
-    
+        # upper() pone a los atributos en mayusculas.
+        return {'_name': self._name.upper(), '_surname': self._surname.upper(),
+                '_age': self._age}
+
     @property
     def name(self):
         return self._name
-        
+
     @name.setter
     def name(self, name):
         self._name = name
@@ -24,7 +25,7 @@ class Person:
     @surname.setter
     def name(self, surname):
         self._surname = surname
-    
+
     @property
     def age(self):
         return self._age
