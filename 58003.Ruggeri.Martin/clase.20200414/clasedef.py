@@ -19,14 +19,16 @@ class PuntoMejorado():
             return 3
         return 4
 
+
 class TestPunto(unittest.TestCase):
     @paramerizad.expand([(4, 5, "(4, 5)")])
     def test_str_punto(self):
-        punto = Punto (4, 5)
+        punto = Punto(4, 5)
         self.assertEqual(punto.__str___())
+
 
 if __name__ == "__main__":
     punto = Punto2D(1, 2)
     otro_punto = Punto2D(-3, -4)
-    print("%s esta en el cuadrante %d" % (punto,punto.cuadrante()))
-    print("%s esta en el cuadrante %d" % (otro_punt
+    print("%s esta en el cuadrante %d" % (punto, punto.cuadrante()))
+    print("%s esta en el cuadrante %d" % (otro_puno)

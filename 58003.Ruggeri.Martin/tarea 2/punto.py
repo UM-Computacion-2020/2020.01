@@ -6,6 +6,7 @@ class Punto():
     def __str__(self):
         return "(%d, %d)" % (self.x, self.y)
 
+
 class PuntoMejorado(Punto):
     def cuadrante(self):
         if self.x == 0 and self.y == 0:

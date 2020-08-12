@@ -5,6 +5,8 @@ class Punto2D():
 
     def __str__(self):
         return "(%d, %d)" % (self.x, self.y)
+
+
 class PuntoMejorado (Punto2D):
     def cuadrante(self):
         if self.x == 0 and self.y == 0:
@@ -17,9 +19,10 @@ class PuntoMejorado (Punto2D):
             return 3
         return 4
 
+
 if __name__ == "__main__":
     punto = PuntoMejorado(1, 2)
     otro_punto = PuntoMejorado(-3, -4)
 
-    print ("%s esta en el cuadrante %d" % (punto, punto.cuadrante()))
-    print ("%s esta en el cuadrante %d" % (otro_punto, otro_punto.cuadrante()))
+    print("%s esta en el cuadrante %d" % (punto, punto.cuadrante()))
+    print("%s esta en el cuadrante %d" % (otro_punto, otro_punto.cuadrante()))

@@ -1,6 +1,7 @@
 from actors import Actor
 from personaje import Personaje
 
+
 class ActorsService():
     def __init__(self, repoA):
         self.repoA = repoA
