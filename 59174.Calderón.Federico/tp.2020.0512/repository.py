@@ -1,5 +1,2 @@
 class Repository:
     person = {}
-
-
-
