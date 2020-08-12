@@ -9,7 +9,7 @@ do
 		repo=$(echo ${img} | cut -d " " -f 1)
 		arr+="${repo}:59088.Juarez "
 	fi
-done <<<"$(docker image ls)"
+done < <(cat <(docker image ls))
 
 arr+="juarezgonzalo/computacion:base"
 
