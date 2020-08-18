@@ -1,8 +1,8 @@
 from person import Person
-       
+
 
 class PersonService():
-    
+
     def __init__(self, repository):
         self.repository = repository
 
@@ -14,17 +14,21 @@ class PersonService():
     def agregar_person(self):
         print("\n     Agregando")
         person = Person()
-        person.ingresar()
+        lastKey = -1
+        for i in self.repository.person:
+            lastKey = i
+        key = lastKey + 1
+        person.ingresar(key)
         self.repository.person[person.key] = person
 
     def eliminar(self):
         print("\n     Eliminando")
-        key = input("Ingrese código a Eliminar: ")
+        key = int(input("Ingrese código a Eliminar: "))
         del self.repository.person[key]
 
     def modificar(self, modificar):
         print("\n     Modificando")
-        key = input("Ingrese código a Modificar: ")
+        key = int(input("Ingrese código a Modificar: "))
         person = self.repository.person[key]
         print("Person %s " % person)
         person.modificar(modificar)

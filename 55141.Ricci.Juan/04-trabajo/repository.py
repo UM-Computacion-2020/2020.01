@@ -1,2 +1,3 @@
+
 class Repository:
-    diccionarioPerson = {}
+    person = dict()

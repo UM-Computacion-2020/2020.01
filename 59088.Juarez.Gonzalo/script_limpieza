@@ -1,0 +1,20 @@
+#! /bin/bash
+
+docker-compose down
+arr=()
+while read img
+do
+	if [[ "${img}" =~ .*"59088.Juarez".* ]]
+	then
+		repo=$(echo ${img} | cut -d " " -f 1)
+		arr+="${repo}:59088.Juarez "
+	fi
+done < <(cat <(docker image ls))
+
+arr+="juarezgonzalo/computacion:base"
+
+echo ${arr[@]}
+
+docker image rm ${arr[@]}
+
+exit 0

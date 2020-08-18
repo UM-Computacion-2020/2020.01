@@ -4,33 +4,21 @@ from person import Person
 class PersonService:
 
     def get_personList(self):
-        print("\n--Listando Personas--\n")
-        return Repository.diccionarioPerson
+        return Repository.person
 
-    def crearPersona(self):
-        name = input("Ingrese un nombre: ")
-        surname = input("Ingrese un apellido: ")
-        age = int(input("Ingrese una edad: "))
-        return Person(name, surname, age)
+    def add_person(self, person):
+        lastKey = -1
+        for key in Repository.person:
+            lastKey = key
+        lastKey = lastKey + 1
+        Repository.person [lastKey] = person.__dict__
+    
+    def update_person(self ,key , person): 
+        #Repository.person[key]['_name'] = person.name
+        #Repository.person[key]['_surname'] = person.surname
+        #Repository.person[key]['_age'] = person.age
+        Repository.person[key] = person.__dict__
 
-    def add_person(self, person=None):
-        print("\n--Agregar Personas--\n")
-        if person is None:
-            person = self.crearPersona()
-        key = len(Repository.diccionarioPerson)
-        Repository.diccionarioPerson[key] = person.__dict__
-
-    def update_person(self, key=None, person=None):
-        print("\n--Modificar Personas--\n")
-        if key is None:
-            key = int(input("Ingrese una llave: "))
-        if person is None:
-            person = self.crearPersona()
-        Repository.diccionarioPerson[key] = person.__dict__
-
-    def delete_person(self, key=None):
-        print("\n--Eliminar Personas--\n")
-        if key is None:
-            key = int(input("Ingrese una llave: "))
-            del Repository.diccionarioPerson[key]
-            
+    def delete_person(self ,key):
+        del Repository.person[key]
+         
