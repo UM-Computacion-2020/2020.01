@@ -1,2 +1,0 @@
-class Repositorios:
-    productosList = dict()
