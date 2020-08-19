@@ -1,0 +1,18 @@
+language: python
+
+python:
+        - "3.8"
+
+services:
+        - docker
+
+before_install:
+        - cd 59088.Juarez.Gonzalo/
+        - docker build --tag juarezgonzalo/computacion:base .
+
+script:
+        - docker-compose up
+
+after_success:
+        - coveralls
+
