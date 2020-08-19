@@ -1,7 +1,9 @@
 FROM python:3
 
-RUN git clone https://github.com/FedericoDavara/TP5-Docker-tp4.git
+RUN git clone https://github.com/FedericoDavara/05-trabajo.git
 
-WORKDIR /TP5-Docker-tp4
+RUN pip3 install parameterized
 
-CMD ["python3", "main.py"]
+WORKDIR /05-trabajo
+
+CMD ["python3", "-m", "unittest"]
