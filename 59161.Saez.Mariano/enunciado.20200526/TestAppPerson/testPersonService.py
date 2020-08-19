@@ -62,7 +62,7 @@ class TestPersonService(unittest.TestCase):
         service = PersonService()
         service.delete_person(key, False)
         listKeys = Repository.person.keys()
-        self.assertIsNot(listKeys, key)
+        self.assertNotIn(key, listKeys)
 
     @parameterized.expand([
         ("Ronnie", "Coleman", 50, 5),
