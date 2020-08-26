@@ -34,3 +34,4 @@ class Employee(Person):
             return "Paga impuestos"
         else:
             return "No paga impuestos"
+

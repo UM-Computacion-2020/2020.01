@@ -20,3 +20,11 @@ class Person:
     @surname.setter
     def surname(self, value):
         self._surname = value
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, value):
+        self._age = value
