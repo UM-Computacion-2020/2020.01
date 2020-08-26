@@ -10,7 +10,7 @@ class Person:
     #Devuelve una lista con el nombre y la edad
     #return ["Claudio", 32]
     def get_person(self):
-        person = {'name': self.name, 'surname': self.surname, 'age': self.age, 'phone': self.phone]
+        person = {'name': self.name, 'surname': self.surname, 'age': self.age, 'phone': self.phone}
         return person 
 
         # o person = dict

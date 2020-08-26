@@ -40,4 +40,4 @@ class PersonService:
     def delete_person(self, key):
         print("\n   Eliminando persona")
         key = int(input("Ingrese key de la persona a eliminar"))
-        del self.repository.person[key]
+        del self.Repository.person[key]
