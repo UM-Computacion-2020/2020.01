@@ -38,20 +38,26 @@ class TestProducto(unittest.TestCase):
     @parameterized.expand([
         ("ascendente",
             {0: {'_descripcion': 'samsung s10', '_precio': 200000,
-             '_tipo': 'celular'}, 1: {'_descripcion': 'samsung s20',
-             '_precio': 400000, '_tipo': 'celular'}, 2: {'_descripcion':
-             'lenovo t490', '_precio': 6000000, '_tipo': 'computadoras'},
-             3: {'_descripcion': 'HP', '_precio': 6000000, '_tipo':
-             'computadoras'}, 4: {'_descripcion': 'acer', '_precio':
-             6000500, '_tipo': 'computadoras'}}),
+             '_tipo': 'celular'},
+             1: {'_descripcion': 'samsung s20', '_precio': 400000,
+             '_tipo': 'celular'},
+             2: {'_descripcion': 'lenovo t490', '_precio': 6000000,
+             '_tipo': 'computadoras'},
+             3: {'_descripcion': 'HP', '_precio': 6000000,
+             '_tipo': 'computadoras'},
+             4: {'_descripcion': 'acer', '_precio': 6000500,
+             '_tipo': 'computadoras'}}),
         ("descendente",
             {0: {'_descripcion': 'acer', '_precio': 6000500,
-             '_tipo': 'computadoras'}, 1: {'_descripcion':
-             'lenovo t490', '_precio': 6000000, '_tipo': 'computadoras'},
-             2: {'_descripcion': 'HP', '_precio': 6000000, '_tipo':
-             'computadoras'}, 3: {'_descripcion': 'samsung s20',
-             '_precio': 400000, '_tipo': 'celular'}, 4: {'_descripcion':
-             'samsung s10', '_precio': 200000, '_tipo': 'celular'}}),
+             '_tipo': 'computadoras'},
+             1: {'_descripcion': 'lenovo t490', '_precio': 6000000,
+             '_tipo': 'computadoras'},
+             2: {'_descripcion': 'HP', '_precio': 6000000,
+             '_tipo': 'computadoras'},
+             3: {'_descripcion': 'samsung s20', '_precio': 400000,
+             '_tipo': 'celular'},
+             4: {'_descripcion': 'samsung s10', '_precio': 200000,
+             '_tipo': 'celular'}}),
     ])
     # Ordenar lista
     def test_insertion_sort_precio(self, tipo_orden, list_ordenada):
@@ -64,6 +70,8 @@ class TestProducto(unittest.TestCase):
          'samsung s10', '_precio': 200000, '_tipo': 'celular'}),
         (400000, {'_descripcion':
          'samsung s20', '_precio': 400000, '_tipo': 'celular'}),
+        (6000500, {'_descripcion':
+         'acer', '_precio': 6000500, '_tipo': 'computadoras'}),
     ])
     # Busqueda binaria
     def test_busqueda_binaria(self, precio_buscado, producto):

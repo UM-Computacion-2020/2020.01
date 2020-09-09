@@ -49,3 +49,23 @@ class ProductoService:
             # insertar el elemento en su lugar
             lista_ordenada[j] = actual
         return lista_ordenada
+
+    def busqueda_binaria(self, lista, busqueda):
+        # Ordenar lista
+        lista_ordenada = self.insertion_sort_precio(lista, 'ascendente')
+        # izquierda guarda el índice inicio del segmento
+        izquierda = 0
+        # derecha guarda el índice fin del segmento
+        derecha = len(lista_ordenada) - 1
+        while izquierda <= derecha:
+            indiceDelElementoDelMedio = (izquierda + derecha) // 2
+            elementoDelMedio = \
+                lista_ordenada[indiceDelElementoDelMedio]["_precio"]
+            if elementoDelMedio == busqueda:
+                return lista_ordenada[indiceDelElementoDelMedio]
+            if busqueda < elementoDelMedio:
+                derecha = indiceDelElementoDelMedio - 1
+            else:
+                izquierda = indiceDelElementoDelMedio + 1
+        # Si salimos del ciclo significa que no existe el valor
+        return {}
