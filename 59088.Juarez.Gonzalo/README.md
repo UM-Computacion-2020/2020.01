@@ -1,3 +1,6 @@
+repo con el codigo:
+https://github.com/juarez-gonza/59088.Juarez.Gonzalo.git
+
 se puede correr de 2 maneras.
         docker-compose up
                 crea una imagen y corre un container para cada trabajo en particular.
