@@ -1,6 +1,6 @@
 FROM python:3
 
-RUN git clone https://github.com/Marianagiacconi/tp5.git
+RUN git clone https://github.com/Marianagiacconi/tp-06.git
 
 COPY src /
 
