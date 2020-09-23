@@ -1,0 +1,5 @@
+[run]
+sourve = .
+
+omit = 
+    */virtualenv/*
