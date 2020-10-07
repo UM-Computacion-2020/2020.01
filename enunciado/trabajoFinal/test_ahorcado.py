@@ -10,7 +10,7 @@ class TestAhorcado(unittest.TestCase):
     ])
     # Inicial para un solo jugador, seleccionando la palabra aleatoriamente.
     # ingresa datos [nombre, dificultad, letras_para_adivinar]
-    def est_un_jugador(self, nombre, dificultad, palabra):
+    def test_un_jugador(self, nombre, dificultad, palabra):
         juego = Ahorcado()
         with patch('builtins.input', side_effect=(nombre, dificultad,
                                                   palabra[0], palabra[1],
@@ -23,7 +23,7 @@ class TestAhorcado(unittest.TestCase):
 
     @parameterized.expand([('Claudio', 1, ['salir'])])
     # Ingresando la palabra salir, se finaliza el juego
-    def est_un_jugador_salir(self, nombre, dificultad, palabra):
+    def test_un_jugador_salir(self, nombre, dificultad, palabra):
         juego = Ahorcado()
         with patch('builtins.input', side_effect=('claudio',
                    dificultad, palabra[0])):
