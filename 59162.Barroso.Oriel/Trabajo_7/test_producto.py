@@ -6,6 +6,9 @@ from repositorios import Repositorios
 
 
 class TestProducto(unittest.TestCase):
+
+    maxDiff = None
+
     def test_uso_property(self):
         producto = Producto()
         producto.descripcion = 'acer A515'
@@ -35,34 +38,42 @@ class TestProducto(unittest.TestCase):
         self.assertDictEqual(Repositorios.productosList[productoKey],
                              producto. __dict__)
 
+    @parameterized.expand([(0, 'samsung s10', 200000, 'celular')])
+    # Modificar un producto
+    def test_change_producto(self, key, descripcion, precio, tipo):
+        producto = Producto(descripcion, precio, tipo)
+        ProductoService.change_producto(None, key, producto)
+        self.assertDictEqual(Repositorios.productosList[key],
+                             producto.__dict__)
+
+    @parameterized.expand([(888, 'Acer', 5000, 'Computadoras')])
+    # Modificar un producto que no existe
+    def test_change_producto_valueError(self, key, descripcion, precio, tipo):
+        producto = Producto(descripcion, precio, tipo)
+        with self.assertRaises(ValueError):
+            ProductoService.change_producto(None, key, producto)
+
     @parameterized.expand([
         ("ascendente",
             {0: {'_descripcion': 'samsung s10', '_precio': 200000,
-             '_tipo': 'celular'},
-             1: {'_descripcion': 'samsung s20', '_precio': 400000,
-             '_tipo': 'celular'},
-             2: {'_descripcion': 'lenovo t490', '_precio': 6000000,
-             '_tipo': 'computadoras'},
-             3: {'_descripcion': 'HP', '_precio': 6000000,
-             '_tipo': 'computadoras'},
-             4: {'_descripcion': 'acer', '_precio': 6000500,
-             '_tipo': 'computadoras'}}),
+             '_tipo': 'celular'}, 1: {'_descripcion': 'samsung s20',
+             '_precio': 400000, '_tipo': 'celular'}, 2: {'_descripcion':
+             'lenovo t490', '_precio': 6000000, '_tipo': 'computadoras'},
+             3: {'_descripcion': 'HP', '_precio': 6000000, '_tipo':
+             'computadoras'}, 4: {'_descripcion': 'acer', '_precio':
+             6000500, '_tipo': 'computadoras'}}),
         ("descendente",
             {0: {'_descripcion': 'acer', '_precio': 6000500,
-             '_tipo': 'computadoras'},
-             1: {'_descripcion': 'lenovo t490', '_precio': 6000000,
-             '_tipo': 'computadoras'},
-             2: {'_descripcion': 'HP', '_precio': 6000000,
-             '_tipo': 'computadoras'},
-             3: {'_descripcion': 'samsung s20', '_precio': 400000,
-             '_tipo': 'celular'},
-             4: {'_descripcion': 'samsung s10', '_precio': 200000,
-             '_tipo': 'celular'}}),
+             '_tipo': 'computadoras'}, 1: {'_descripcion':
+             'lenovo t490', '_precio': 6000000, '_tipo': 'computadoras'},
+             2: {'_descripcion': 'HP', '_precio': 6000000, '_tipo':
+             'computadoras'}, 3: {'_descripcion': 'samsung s20',
+             '_precio': 400000, '_tipo': 'celular'}, 4: {'_descripcion':
+             'samsung s10', '_precio': 200000, '_tipo': 'celular'}}),
     ])
-    # Ordenar lista
     def test_insertion_sort_precio(self, tipo_orden, list_ordenada):
         lista_ordenada = ProductoService().\
-            insertion_sort_precio(Repositorios.productosList, tipo_orden)
+         insertion_sort_precio(Repositorios.productosList, tipo_orden)
         self.assertDictEqual(lista_ordenada, list_ordenada)
 
     @parameterized.expand([
@@ -70,19 +81,18 @@ class TestProducto(unittest.TestCase):
          'samsung s10', '_precio': 200000, '_tipo': 'celular'}),
         (400000, {'_descripcion':
          'samsung s20', '_precio': 400000, '_tipo': 'celular'}),
-        (6000500, {'_descripcion':
-         'acer', '_precio': 6000500, '_tipo': 'computadoras'}),
     ])
     # Busqueda binaria
     def test_busqueda_binaria(self, precio_buscado, producto):
         busqueda = ProductoService().\
-            busqueda_binaria(Repositorios.productosList, precio_buscado)
+         busqueda_binaria(Repositorios.productosList, precio_buscado)
         self.assertDictEqual(busqueda, producto)
 
     # Eliminar un producto
     # def test_delete_producto(self):
     #    ProductoService().delete_producto(0)
     #    self.assertEqual(Repositorios.productosList.get(0), None)
+    #    print(ProductoService().get_productosList())
 
     @parameterized.expand([
         ("lenovo t490", 6000000, 'computadoras')
