@@ -5,5 +5,5 @@ RUN pip3 install parameterized
 
 WORKDIR /ComputacionMatiasRobbio/TP7
 
-CMD ["python3", "-m", "unittest"]
+CMD python3 test_producto.py -b
 
