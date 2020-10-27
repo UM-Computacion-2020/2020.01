@@ -1,6 +1,6 @@
 from python:3
 
-run git clone https://github.com/JessePonkman/07_trabajo.git
+run git clone https://github.com/MarianoSaez/07_trabajo.git
 
 run pip3 install parameterized
 
