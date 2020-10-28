@@ -4,7 +4,7 @@ services:
 
     tpfinal:
         build:
-            context: ./practico-final/
+            context: ./TrabajoPractico/
             dockerfile: Dockerfile
         image: tpfinal:59088.Juarez
         container_name: tpFinal-59088-Juarez
