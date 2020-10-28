@@ -6,4 +6,4 @@ RUN pip3 install parameterized
 
 WORKDIR /TrabajoPracticoAhorcado
 
-CMD ["python3", "-m", "unittest"] 
+CMD python3 -m unittest && python3 main.py
