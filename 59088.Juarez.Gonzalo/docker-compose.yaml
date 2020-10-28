@@ -2,6 +2,27 @@ version: "3.6"
 
 services:
 
+    tpfinal:
+        build:
+            context: ./TrabajoPractico/
+            dockerfile: Dockerfile
+        image: tpfinal:59088.Juarez
+        container_name: tpFinal-59088-Juarez
+
+    tp8alt:
+        build:
+            context: ./enunciado/08-trabajo-alt/
+            dockerfile: Dockerfile
+        image: tp8alt:59088.Juarez
+        container_name: tp8Alt-59088-Juarez
+
+    tp8:
+        build:
+            context: ./enunciado/08-trabajo/
+            dockerfile: Dockerfile
+        image: tp8:59088.Juarez
+        container_name: tp8-59088-Juarez
+
     tp7:
         build:
             context: ./enunciado/07-trabajo/
